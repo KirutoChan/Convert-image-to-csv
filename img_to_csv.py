@@ -12,9 +12,9 @@ h = im.size[1]
 pix = im.load()
 
 with open("xy.csv", 'w', newline = '') as f:	# opens the empty csv file where we will put the spectrum values
-
-	for i in range(6, w-1):
-		for j in range(0, h-5):
+# check all pixels in image and if it is on our spectrum, we write x, y of that point to csv.
+	for i in range(6, w-1):						# from 6 because we need to exclude some points that we don't need
+		for j in range(0, h-5):					
 			if pix[i, j][0] == 255:				# pix[i, j] gives RGBA values, and we need to check only the first one
 				writer = csv.writer(f)
 				writer.writerows([[i, j]])
